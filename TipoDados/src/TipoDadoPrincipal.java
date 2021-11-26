@@ -5,7 +5,7 @@ import java.util.Date;
 public class TipoDadoPrincipal {
 
 	public TipoDadoPrincipal() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public static void main(String[] args) throws ParseException {
@@ -27,7 +27,7 @@ public class TipoDadoPrincipal {
 		salarioAnual = 12000;
 		
 		
-		System.out.println("O " + nome + " tem " + idade + " anos, é do sexo " + sexo + " e recebe " + salario + " e por ano " + salarioAnual);
+		System.out.println("O " + nome + " tem " + idade + " anos, Ã© do sexo " + sexo + " e recebe " + salario + " e por ano " + salarioAnual);
 		System.out.println(dataNasc);
 		System.out.println(dataNascimento);
 
