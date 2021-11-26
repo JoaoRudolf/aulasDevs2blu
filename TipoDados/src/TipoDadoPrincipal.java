@@ -29,19 +29,19 @@ public class TipoDadoPrincipal {
 		salarioAnual = 12000;
 		
 		
-		System.out.println("O " + nome + " tem " + idade + " anos, √© do sexo " + sexo + " e recebe " + salario + " e por ano " + salarioAnual);
+		System.out.println("O " + nome + " tem " + idade + " anos, È do sexo " + sexo + " e recebe " + salario + " e por ano " + salarioAnual);
 		System.out.println(dataNasc);
 		System.out.println(dataNascimento);
 
 		nome = JOptionPane.showInputDialog("Informe o nome do sujeito");
 		idade = Integer.parseInt(JOptionPane.showInputDialog("Informe a idade"));
 		sexo = JOptionPane.showInputDialog("Informe o sexo: ").charAt(0);
-		salario = Float.parseFloat(JOptionPane.showInputDialog("Informe o sal√°rio"));
-		salarioAnual = Double.parseDouble(JOptionPane.showInputDialog("Informe o sal√°rio anual"));
+		salario = Float.parseFloat(JOptionPane.showInputDialog("Informe o sal·rio"));
+		salarioAnual = Double.parseDouble(JOptionPane.showInputDialog("Informe o sal·rio anual"));
 		
 		
 		
-		System.out.printf("o nome √© %s, a idade √© de %d, o sexo √© %c, sal√°rio √© %.2f e o anual %.2f", nome, idade, sexo, salario, salarioAnual);
+		System.out.printf("o nome È %s, a idade È de %d, o sexo È %c, sal·rio È %.2f e o anual %.2f", nome, idade, sexo, salario, salarioAnual);
 		
 	}
 
