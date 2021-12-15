@@ -2,7 +2,10 @@ package Veiculo;
 
 public interface Veiculo {
 
-	public int acelerar();
-	public String abastecer();
-	public String frear();
+	public void acelerar();
+	public void abastecer();
+	public void frear();
+	public void ligar();
+	public void desligar();
+	
 }
