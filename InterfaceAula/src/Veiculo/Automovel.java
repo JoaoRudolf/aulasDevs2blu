@@ -1,6 +1,6 @@
 package Veiculo;
 
-public class Automovel implements Veiculo {
+public class Automovel extends Veiculo {
 
 	private String modeloVeiculo;
 	private int velocAtual;
@@ -80,12 +80,23 @@ public class Automovel implements Veiculo {
 			System.out.println("Abasteça o carro antes de dar a partida para evitar danos à bomba de combustível");
 		}
 	}
+	
+	@Override
+	public void abastecer() {
+		litragemAtual = capacTanque;
+		System.out.println("Tanque cheio, carteira vazia =)");
+	}
 
 	@Override
 	public void desligar() {
 		if (velocAtual == 0) {
-
+			isLigado = false;
+			System.out.println("Carro desligado.");
+		} else {
+			System.out.println("O carro só pode ser desligado se estiver parado!");
 		}
+		informaVelocidade();
+		informaLitragem();
 
 	}
 
@@ -105,15 +116,31 @@ public class Automovel implements Veiculo {
 
 		}
 	}
+	
+	@Override
+	public void manterVelocidade() {
+		if (isLigado && litragemAtual > 0) {
+			litragemAtual--;
+			informaVelocidade();
+			informaLitragem();
+			 if (litragemAtual <= 5) {
+				 System.out.println("O tanque está na reseva, favor abastecer");
+				 
+			}
+		} else if (litragemAtual == 0) {
+			System.out.println("O veículo está sem combustível, pane seca");
+		}
+	}
+
 
 	public void frear() {
-		if (velocAtual >= 10) {
+		if (isLigado && velocAtual >= 10) {
 			velocAtual -= 10;
 		} else {
 			velocAtual = 0;
 		}
 
-		if (litragemAtual > 0) {
+		if (isLigado && litragemAtual > 0) {
 			litragemAtual--;
 			informaVelocidade();
 			informaLitragem();
@@ -126,6 +153,8 @@ public class Automovel implements Veiculo {
 			velocAtual = 0;
 			informaVelocidade();
 			informaLitragem();
+		} else if (!isLigado) {
+			System.out.println("O carro está desligado e não pode ser freado");
 		}
 	}
 
@@ -133,10 +162,7 @@ public class Automovel implements Veiculo {
 		System.out.print("A velocidade atual é de " + velocAtual + " quilômetros por hora. ");
 	}
 
-	@Override
-	public void abastecer() {
-		litragemAtual = capacTanque;
-	}
+
 
 	private void informaLitragem() {
 		System.out.println("Atualmente o tanque tem " + litragemAtual + " litros");

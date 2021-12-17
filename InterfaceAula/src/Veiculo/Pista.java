@@ -9,7 +9,8 @@ public class Pista {
 		int tipoVeiculo = 0, acao = 0;
 		float capacTanque, litragemAtual;
 		boolean controleDeErro = true;
-		Automovel automovel = null;
+		Veiculo veiculo = null;
+		// Motocicleta motocicleta = null;
 
 		while (controleDeErro == true) { // while de criação do veículo
 			try {
@@ -24,11 +25,11 @@ public class Pista {
 				if (litragemAtual > capacTanque) {
 					System.out.println("Litragem atual não pode ser maior que a capacidade do tanque");
 				} else {
-					
+
 					if (tipoVeiculo == 1) {
-						automovel = new Automovel(modeloDeVeiculo, capacTanque, litragemAtual);
+						veiculo = new Automovel(modeloDeVeiculo, capacTanque, litragemAtual);
 					} else if (tipoVeiculo == 2) {
-						// implementar motocicleta
+						veiculo = new Motocicleta(modeloDeVeiculo, capacTanque, litragemAtual);
 					}
 					controleDeErro = false;
 				} // fim do else
@@ -36,38 +37,51 @@ public class Pista {
 				JOptionPane.showMessageDialog(null, "Caractere inválido " + e.getMessage());
 				controleDeErro = true;
 			}
-		}  // fim do while de criação do veículo
+		} // fim do while de criação do veículo
 		controleDeErro = true;
-		
-		
-		while (acao != 6) {
-			acao = Integer.parseInt(JOptionPane.showInputDialog("Situação do veículo: \n" + "Está ligado? "
-					+ automovel.isLigado() + " ;\n" + "Velocidade Atual: " + automovel.getVelocAtual() + "km/h; \n"
-					+ "Tanque de combustível: " + automovel.getLitragemAtual() + " litros de um total de "
-					+ automovel.getCapacTanque() + " litros possíveis. \n\n"
-					+ "Digite a ação que deseja fazer com o seu veículo: \n"
-					+ "1 - Ligar / 2 - Abastecer / 3 - Acelerar / 4 - Frear / 5 - Desligar / 6 - Sair do sistema. \n"));
-			switch (acao) {
-			case 1:
-				automovel.ligar();
-				break;
-			case 2:
-				automovel.abastecer();
-				break;
-			case 3:
-				automovel.acelerar();
-				break;
-			case 4:
-				automovel.frear();
-				break;
-			case 5:
-				automovel.desligar();
-				break;
-			default:
-				break;
-			}
-		}
 
+		while (controleDeErro == true) { // while do painel de opções
+			try {
+				while (acao != 7) {
+					acao = Integer.parseInt(JOptionPane.showInputDialog("Situação do veículo: \n" + "Está ligado? "
+							+ veiculo.isLigado() + " ;\n" + "Velocidade Atual: " + veiculo.getVelocAtual() + "km/h; \n"
+							+ "Tanque de combustível: " + veiculo.getLitragemAtual() + " litros de um total de "
+							+ veiculo.getCapacTanque() + " litros possíveis. \n\n"
+							+ "Digite a ação que deseja fazer com o seu veículo: \n"
+							+ "1 - Ligar / 2 - Abastecer / 3 - Acelerar / 4 - Manter Velocidade / 5 - Frear / 6 - Desligar / 7 - Sair do sistema. \n"));
+
+					controleDeErro = true;
+
+					switch (acao) {
+					case 1:
+						veiculo.ligar();
+						break;
+					case 2:
+						veiculo.abastecer();
+						break;
+					case 3:
+						veiculo.acelerar();
+						break;
+					case 4:
+						veiculo.manterVelocidade();
+						break;
+					case 5:
+						veiculo.frear();
+						break;
+					case 6:
+						veiculo.desligar();
+						break;
+					default:
+						break;
+
+					}
+				}
+
+			} catch (Exception e) {
+				JOptionPane.showMessageDialog(null, "Caractere inválido " + e.getMessage());
+				controleDeErro = true;
+			}
+		} // fim do while de opções
 	} // fim do main
 
 } // fim da classe
