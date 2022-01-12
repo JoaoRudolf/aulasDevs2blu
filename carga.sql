@@ -4,8 +4,8 @@ insert into caminhao (placa,datamanut,dataproxmanut) values ('WKK-2789','2020-11
 insert into caminhao (placa,datamanut,dataproxmanut) values ('CKK-7524','2020-11-04','2022-02-04');
 
 insert into motorista (nrcnh,nommotorista) values (1992882,'Brenda R. Winder');
-insert into motorista (nrcnh,nommotorista) values (1734336,'José Castro Alves');
-insert into motorista (nrcnh,nommotorista) values (0749800,'Júlio Almeida Barbosa');
+insert into motorista (nrcnh,nommotorista) values (1734336,'JosÃ© Castro Alves');
+insert into motorista (nrcnh,nommotorista) values (0749800,'JÃºlio Almeida Barbosa');
 insert into motorista (nrcnh,nommotorista) values (7744654,'Fernanda Gomes Lima');
 
 insert into notafiscal (nrnota,dataemissao,pesototal,vlrtotal)
@@ -87,8 +87,8 @@ select * from balanca;
 
 select 
 c.placa "Placa",
-to_char(c.datamanut, 'dd/mm/yyyy') as "Data da Manutenção",
-c.dataproxmanut "Data da Próxima Manutenção"
+to_char(c.datamanut, 'dd/mm/yyyy') as "Data da ManutenÃ§Ã£o",
+c.dataproxmanut "Data da PrÃ³xima ManutenÃ§Ã£o"
 from caminhao c
 order by 3;
 
@@ -97,12 +97,30 @@ from caminhao c
 where c.datamanut = (select max (datamanut) from caminhao);
 
 select
-m.nrmanifesto,
-m.nrnota ,
-m.pesototal ,
+m.nrmanifesto "NÂº Manif.",
+m.nrnota "NF",
+m.pesototal "Peso total",
 m.qtdvolumes ,
 to_char( m.dataembarque, 'dd/mm/yyyy' ) as "Data Embarque",
-m.indsituacao "Situação",
-to_char(coalesce(m.datasaida, '01/01/1914'), 'dd/mm/yyyy' )"Data Saída"
+m.indsituacao "SituaÃ§Ã£o",
+to_char(coalesce(m.datasaida, '01/01/1914'), 'dd/mm/yyyy' )"Data SaÃ­da"
 from manifestocarga m 
 where m.nrmanifesto = 1;
+
+select
+m.nrmanifesto "NÂº Manif.",
+m.nrnota "NF",
+m.pesototal "Peso total",
+m.qtdvolumes ,
+to_char( m.dataembarque, 'dd/mm/yyyy' ) as "Data Embarque",
+case m.indsituacao 
+ when 'E' then 'Embarcado'
+ when 'P' then 'Pendente'
+ when 'S' then 'SaÃ­da'
+ end "SituaÃ§Ã£o",
+to_char(coalesce(m.datasaida, '01/01/1914'), 'dd/mm/yyyy' )"Data SaÃ­da"
+from manifestocarga m 
+where m.nrmanifesto = 1;
+
+select * from motorista m 
+where m.nommotorista like '%Ã©%';
