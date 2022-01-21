@@ -8,7 +8,7 @@ public class Conexao {
 
 	static final String url = "jdbc:postgresql://localhost:5432/postgres";
 	static final String user = "postgres";
-	static final String password = "admin";
+	static final String password = "missi34";
 	
 	public static Connection conectar() {
 		Connection con = null;
