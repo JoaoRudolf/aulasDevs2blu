@@ -15,6 +15,23 @@ public class Cliente {
 	String cpf;
 	String endereco;
 	String telefone;
+	
+	public Cliente() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+
+	public Cliente(int id, String nome, String cpf, String endereco, String telefone) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.cpf = cpf;
+		this.endereco = endereco;
+		this.telefone = telefone;
+	}
+
+
 
 	public int getId() {
 		return id;
@@ -55,6 +72,9 @@ public class Cliente {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
+	
+	
+	// métodos abaixo transportar para a classe DaoCliente
 
 	public List<Cliente> consultaTodos() {
 		List<Cliente> clientes = new ArrayList<>();

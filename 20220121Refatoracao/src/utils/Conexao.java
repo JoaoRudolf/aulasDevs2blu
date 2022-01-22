@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Conexao {
+
 	static final String url = "jdbc:postgresql://localhost:5432/postgres";
 	static final String user = "postgres";
 	static final String password = "admin";
@@ -17,7 +18,6 @@ public class Conexao {
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		
 		return con;		
 	}
 }

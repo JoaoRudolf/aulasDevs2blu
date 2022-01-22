@@ -8,15 +8,15 @@ import utils.Conexao;
 public class Principal {
 	
 	public static void main(String[] args) {
-		alterarCarro();
-		lerTodos();
-		
-
-		
-		
-
-//		consultar();
-		
+//		alterarCarro();
+//		lerTodos();
+//		
+//
+//		
+//		
+//
+////		consultar();
+//		
 
 		
 	} // fim do main
