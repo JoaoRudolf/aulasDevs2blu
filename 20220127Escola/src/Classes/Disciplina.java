@@ -13,6 +13,17 @@ public class Disciplina {
 		// TODO Auto-generated constructor stub
 	}
 	
+	
+	
+	public Disciplina(String nomDisciplina, String nomProfessor, int qtdAvaliacoes) {
+		super();
+		this.nomDisciplina = nomDisciplina;
+		this.nomProfessor = nomProfessor;
+		this.qtdAvaliacoes = qtdAvaliacoes;
+	}
+
+
+
 	// getters e setters:
 	
 	public int getCodDisciplina() {
