@@ -5,19 +5,37 @@
     padding: 0;
 }
 
+body {
+    background-color: rgb(233, 230 , 230, 0.4);
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
 /* Header */
 header {
     position: relative;
     height: auto;
     /* padding: TB RL */
-    padding: 10px 30px;
+    padding: 10px 0;
+}
+
+#topo-site-menu {
+    border-bottom: 2px solid #111;
+    width: 100vw;
+}
+
+#topo-site-menu:after {
+    display: block;
+    clear: both;
+    content: "";
 }
 
 #logo {
     display: block;
-    border-bottom: 2px solid #111;
     height: 80px;
     line-height: 80px;
+    width: 50%;
+    float: left;
 }
 
 #logo::after {
@@ -29,7 +47,7 @@ header {
 .logo-topo {
     display: block;
     float: left;
-    width: 50px;
+    width: 40px;
     margin: 20px;
 }
 
@@ -38,3 +56,124 @@ header {
     float: left;
 }
 
+/* Menu */
+#menu-horizontal {
+    display: block;
+    float: right;
+    height: 60px;
+    line-height: 60px;
+    width: 40%;
+}
+
+#menu-horizontal ul li {
+    display: inline-block;
+    width: 75px;
+    padding: 5px;
+    text-align: center;
+    list-style: none;
+}
+
+
+#menu-horizontal ul li a{
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-size: 22px;
+    color: rgb(255, 102, 0);
+}
+
+#menu-horizontal ul li a:hover {
+    background-color: rgb(255, 102, 0);
+    color: white;
+    font-size: 24px;
+    transition: all .5s;
+}
+
+/* #header-do-site {
+    background-color: rgb(33, 33, 240);
+    width: 100%;
+    position: absolute;
+    line-height: 130px;
+}
+
+#header {
+    text-align: center;
+    color: aliceblue;
+    font-size: 150%;
+} */
+
+#topo-destaque {
+    padding-top: 10em;
+    padding-bottom: 10em;
+    text-align: center;
+    font-size: 100%;
+    background-color: purple;
+    color: rgb(241, 241, 241);
+    background: url('./_img/rick2.jpg');
+    background-position: 0% 0%;
+    background-size: 120%;
+}
+
+.wrapper {
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#topo-destaque-content {
+    font-weight: 800;
+}
+
+#art-destaque {
+    padding-top: 2em;
+    padding-bottom: 2em;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, .4);
+}
+
+#art-destaque h1 {
+    font-size: 60px;
+    text-shadow: 1px 1px 1px #000;
+}
+
+#art-destaque .texto-destaque {
+  color: green;
+  font-size: 33px;
+  text-shadow: 1px 1px 1px #fff;
+}
+
+#topo-destaque h1{
+    font-size: 2em;
+}
+
+
+#topo-destaque p{
+    font-size: 1em;
+    color: #000;
+}
+
+#rodape {
+    background: url('./_img/pe.png');
+    position: fixed;
+    left: 50px;
+    margin-left: 20px;
+    margin-right: auto;
+}
+
+main {
+    min-height: 100vw;
+}
+
+#pe {
+    position: relative;
+    margin-left: 300px;
+}
+
+/* footer */
+footer {
+    min-height: 25vw;
+    background-color: rgb(14, 240, 240);
+}
